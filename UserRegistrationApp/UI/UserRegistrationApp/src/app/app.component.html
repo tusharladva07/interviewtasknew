@@ -1,0 +1,6 @@
+  <div >
+    <app-user-form [editInputData]="editdata" (isDataUpdated)="onDataUpdated($event)"></app-user-form>
+  </div>
+  <div>
+    <app-user-list (editData)="onEditData($event)" [refreshList]="isRefreshList"></app-user-list>
+  </div>

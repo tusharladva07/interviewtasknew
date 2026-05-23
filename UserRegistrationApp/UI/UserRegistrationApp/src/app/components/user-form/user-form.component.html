@@ -1,0 +1,156 @@
+<div class="container-fluid main-container">
+
+  <div class="section-title">
+    Demo
+  </div>
+
+  <div class="card-box">
+
+    <h5 class="mb-4 fw-semibold">Form</h5>
+
+    <form [formGroup]="userForm">
+
+      <div class="row">
+
+        <div class="col-md-2 mb-4">
+          <label class="form-label">Name</label>
+
+          <input type="text" class="form-control" placeholder="Enter name" formControlName="name">
+          <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']" class="invalid-feedback d-block">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="col-md-2 mb-4">
+          <label class="form-label">Email</label>
+
+          <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+          <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']" class="invalid-feedback d-block">
+            Email is required.
+          </div>
+          <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['email']" class="invalid-feedback d-block">
+            Enter a valid email address.
+          </div>
+        </div>
+
+        <div class="col-md-2 mb-4">
+          <label class="form-label">Password</label>
+
+          <input type="password" class="form-control" placeholder="Enter password" formControlName="password">
+          <div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['required']" class="invalid-feedback d-block">
+            Password is required.
+          </div>
+          <div *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['minlength']" class="invalid-feedback d-block">
+            Password must be at least 4 characters long.
+          </div>
+        </div>
+
+        <div class="col-md-2 mb-4">
+          <label class="form-label">Confirm password</label>
+
+          <input type="password" class="form-control" placeholder="Enter confirm password" formControlName="confirmPassword">
+          <div *ngIf="userForm.get('confirmPassword')?.touched && userForm.get('confirmPassword')?.errors?.['required']" class="invalid-feedback d-block">
+            Confirm password is required.
+          </div>
+          <div *ngIf="userForm.touched && userForm.hasError('passwordMismatch') && userForm.get('confirmPassword')?.touched" class="invalid-feedback d-block">
+            Confirm password must match the password.
+          </div>
+        </div>
+
+        <div class="col-md-2 mb-4">
+          <label class="form-label">Hobby</label>
+
+          <select class="form-select" formControlName="hobby">
+            <option class="form-option" value="Cricket">Cricket</option>
+            <option class="form-option" value="Football">Football</option>
+            <option class="form-option" value="Reading">Reading</option>
+          </select>
+          <div *ngIf="userForm.get('hobby')?.touched && userForm.get('hobby')?.errors?.['required']" class="invalid-feedback d-block">
+            Hobby is required.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SECOND ROW -->
+
+      <div class="row align-items-center">
+
+        <div class="col-md-2 mb-4">
+          <label class="form-label">Date of birth</label>
+
+          <input type="date" class="form-control" formControlName="dateOfBirth">
+          <div *ngIf="userForm.get('dateOfBirth')?.touched && userForm.get('dateOfBirth')?.errors?.['required']" class="invalid-feedback d-block">
+            Date of birth is required.
+          </div>
+        </div>
+
+        <div class="col-md-2 mb-4">
+
+          <label class="form-label d-block">
+            Gender
+          </label>
+
+          <div class="form-check form-check-inline">
+
+            <input class="form-check-input" type="radio" name="gender" formControlName="gender" value="Male">
+
+            <label class="form-check-label">
+              Male
+            </label>
+
+          </div>
+
+          <div class="form-check form-check-inline">
+
+            <input class="form-check-input" type="radio" name="gender" formControlName="gender" value="Female">
+
+            <label class="form-check-label">
+              Female
+            </label>
+
+          </div>
+          <div *ngIf="userForm.get('gender')?.touched && userForm.get('gender')?.errors?.['required']" class="invalid-feedback d-block">
+            Gender is required.
+          </div>
+        </div>
+
+        <div class="col-md-2 mb-4">
+
+          <label class="form-label d-block">
+            Status
+          </label>
+
+          <div class="form-check">
+
+            <input class="form-check-input" type="checkbox" formControlName="status">
+
+            <label class="form-check-label">
+              Active
+            </label>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BUTTONS -->
+
+      <div class="d-flex justify-content-end mt-3">
+
+        <button type="button" class="btn btn-custom btn-clear me-2" (click)="clearForm()">
+          CLEAR
+        </button>
+
+        <button *ngIf="!editInputData" type="submit" class="btn btn-custom btn-save" (click)="saveForm()">
+          SAVE
+        </button>
+          <button *ngIf="editInputData" type="submit" class="btn btn-custom btn-save" (click)="updateForm()">
+          Update
+        </button>
+
+      </div>
+
+    </form>
+  </div>
+</div>
