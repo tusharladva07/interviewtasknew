@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,41 +8,39 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @Output() loginSuccess = new EventEmitter<void>();
 
-  loginForm:FormGroup = new FormGroup({});
+  loginForm: FormGroup = new FormGroup({});
+  errorMessage = '';
 
-  constructor(  private fb: FormBuilder,
-  private authService: AuthService,
-  private router: Router)
-  {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService
+  ) { }
 
-  }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
   }
-  login() {
 
-  if(this.loginForm.invalid){
-    return;
-  }
+  login(): void {
+    this.errorMessage = '';
+    this.loginForm.markAllAsTouched();
 
-  this.authService.login(this.loginForm.value)
-    .subscribe({
-      next: (res: any) => {
+    if (this.loginForm.invalid) {
+      return;
+    }
 
+    this.authService.login(this.loginForm.value).subscribe({
+      next: (res) => {
         this.authService.setToken(res.token);
-
-        alert('Login Successful');
-
-        this.router.navigate(['/users']);
+        this.loginSuccess.emit();
       },
-
       error: () => {
-        alert('Invalid Credentials');
+        this.errorMessage = 'Invalid email or password.';
       }
     });
-}
+  }
 }

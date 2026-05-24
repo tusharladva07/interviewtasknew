@@ -1,0 +1,23 @@
+.password-input-group .form-control {
+  border-right: 0;
+}
+
+.password-input-group .password-toggle-btn {
+  border-left: 0;
+  height: 42px;
+  min-width: 42px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-input-group .password-toggle-btn i {
+  font-size: 1.1rem;
+}
+
+.password-input-group:focus-within .form-control,
+.password-input-group:focus-within .password-toggle-btn {
+  border-color: #86b7fe;
+  box-shadow: none;
+}

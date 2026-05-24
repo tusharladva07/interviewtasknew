@@ -1,6 +1,16 @@
-@UserRegApi_HostAddress = http://localhost:5164
+@UserRegApi_HostAddress = https://localhost:7102
 
-GET {{UserRegApi_HostAddress}}/weatherforecast/
-Accept: application/json
+POST {{UserRegApi_HostAddress}}/api/Auth/Login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "password"
+}
+
+###
+
+GET {{UserRegApi_HostAddress}}/api/User/GetList
+Authorization: Bearer {{token}}
 
 ###

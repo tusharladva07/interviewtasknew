@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"e/Hw4+TaPIUBgv3FYddtuDs2cEm0a5xw/iStFDHSHes=","Source":"UserRegApi","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "4ZrFGgp7pRZo4OcgerCaTtV2Uy4nUabk6/dXfOpmjuE=",
+  "Source": "UserRegApi",
+  "BasePath": "_content/UserRegApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

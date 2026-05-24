@@ -18,10 +18,9 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('UserRegistrationApp');
   });
 
-  it('should render title', () => {
+  it('should start unauthenticated', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('UserRegistrationApp app is running!');
+    const app = fixture.componentInstance;
+    expect(app.isAuthenticated).toBeFalse();
   });
 });

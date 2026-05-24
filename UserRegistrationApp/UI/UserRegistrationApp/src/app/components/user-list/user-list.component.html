@@ -1,53 +1,42 @@
-
-  <!-- RESULT SECTION -->
 <div class="container-fluid main-container">
+  <h5 class="mb-4 fw-semibold">Result</h5>
 
-
-    <h5 class="mb-4 fw-semibold">Result</h5>
-
-    <div class="table-responsive">
-
-      <table class="table align-middle">
-
-        <thead>
-
-          <tr>
-            <th>Action</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>DOB</th>
-            <th>Hobby</th>
-            <th>Status</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr *ngFor="let user of listData">
-
-            <td class="action-icons">
-              <i class="bi bi-pencil" (click)="editUser(user)"></i>
-              <i class="bi bi-trash" (click)="deleteUser(user.id)"></i>
-            </td>
-
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.gender }}</td>
-            <td>{{ user.dateOfBirth | date:'dd/MM/yyyy' }}</td>
-            <td>{{ user.hobby }}</td>
-            <td>{{ user.status == true ? 'Active' : 'Inactive' }}</td>
-
-            
-        </tr>
-        <tr *ngIf="listData.length === 0">
-            <td colspan="7" class="text-center">No Data Found</td>
-        </tr>
-        </tbody>
-
-      </table>
-
-    </div>
-
+  <div *ngIf="errorMessage" class="alert alert-danger py-2">
+    {{ errorMessage }}
   </div>
+
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>DOB</th>
+          <th>Hobby</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of listData">
+          <td class="action-icons">
+            <i class="bi bi-pencil" (click)="editUser(user)"></i>
+            <i class="bi bi-trash" (click)="deleteUser(user.id)"></i>
+          </td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.gender }}</td>
+          <td>{{ user.dateOfBirth | date:'dd/MM/yyyy' }}</td>
+          <td>{{ user.hobby }}</td>
+          <td>{{ user.status ? 'Active' : 'Inactive' }}</td>
+        </tr>
+
+        <tr *ngIf="listData.length === 0">
+          <td colspan="7" class="text-center">No data found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

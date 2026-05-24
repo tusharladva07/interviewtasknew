@@ -1,27 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 import { environment } from '../environment';
+import { UserDetail, UserFormValue, UserListItem } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-constructor(private http: HttpClient) { }
+  private readonly listRefreshSource = new Subject<void>();
+  readonly listRefresh$ = this.listRefreshSource.asObservable();
 
-GetUserList(){
-  return this.http.get(`${environment.apiUrl}/User/GetList`);
-}
-GetUserDetails(id: number){
-  return this.http.get(`${environment.apiUrl}/User/GetDetails/${id}`);
-}
-AddUser(userDto: any){
-  return this.http.post(`${environment.apiUrl}/User/Create`, userDto);
-}
-updateUser(id: number, user: any){
-  return this.http.put(`${environment.apiUrl}/User/Update/${id}`, user);
-}
-deleteUser(id: number){
-  return this.http.post(`${environment.apiUrl}/User/Delete/${id}`, null); 
-}
+  constructor(private http: HttpClient) { }
 
+  requestListRefresh(): void {
+    this.listRefreshSource.next();
+  }
+
+  getUserList(): Observable<UserListItem[]> {
+    return this.http.get<UserListItem[]>(`${environment.apiUrl}/User/GetList`);
+  }
+
+  getUserDetails(id: number): Observable<UserDetail> {
+    return this.http.get<UserDetail>(`${environment.apiUrl}/User/GetDetails/${id}`);
+  }
+
+  addUser(userDto: UserFormValue): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${environment.apiUrl}/User/Create`, userDto);
+  }
+
+  updateUser(id: number, user: UserFormValue): Observable<{ message: string }> {
+    return this.http.put<{ message: string }>(`${environment.apiUrl}/User/Update/${id}`, user);
+  }
+
+  deleteUser(id: number): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${environment.apiUrl}/User/Delete/${id}`, null);
+  }
 }

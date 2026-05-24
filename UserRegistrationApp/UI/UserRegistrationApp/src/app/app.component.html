@@ -1,6 +1,17 @@
-  <div >
-    <app-user-form [editInputData]="editdata" (isDataUpdated)="onDataUpdated($event)"></app-user-form>
+<app-login *ngIf="!isAuthenticated" (loginSuccess)="onLoginSuccess()"></app-login>
+
+<div *ngIf="isAuthenticated" class="app-shell">
+  <div class="d-flex justify-content-end mb-3">
+    <button type="button" class="btn btn-outline-secondary btn-sm" (click)="logout()">
+      Logout
+    </button>
   </div>
-  <div>
-    <app-user-list (editData)="onEditData($event)" [refreshList]="isRefreshList"></app-user-list>
-  </div>
+
+  <app-user-form
+    [editInputData]="editData"
+    (isDataUpdated)="onDataUpdated()"
+    (editCleared)="editData = null">
+  </app-user-form>
+
+  <app-user-list (editData)="onEditData($event)"></app-user-list>
+</div>

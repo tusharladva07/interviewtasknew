@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\interviewtask\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\UserRegApi.csproj": {}
+    "D:\\OneDrive\\Documents\\GitHub\\interviewtasknew\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\UserRegApi.csproj": {}
   },
   "projects": {
-    "D:\\interviewtask\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\UserRegApi.csproj": {
+    "D:\\OneDrive\\Documents\\GitHub\\interviewtasknew\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\UserRegApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\interviewtask\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\UserRegApi.csproj",
+        "projectUniqueName": "D:\\OneDrive\\Documents\\GitHub\\interviewtasknew\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\UserRegApi.csproj",
         "projectName": "UserRegApi",
-        "projectPath": "D:\\interviewtask\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\UserRegApi.csproj",
+        "projectPath": "D:\\OneDrive\\Documents\\GitHub\\interviewtasknew\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\UserRegApi.csproj",
         "packagesPath": "C:\\Users\\Tushar Ladava\\.nuget\\packages\\",
-        "outputPath": "D:\\interviewtask\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\obj\\",
+        "outputPath": "D:\\OneDrive\\Documents\\GitHub\\interviewtasknew\\UserRegistrationApp\\API\\UserRegApi\\UserRegApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Tushar Ladava\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "10.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -88,24 +83,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.25, 8.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.25, 8.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.25, 8.0.25]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.25, 8.0.25]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -114,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.421/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
